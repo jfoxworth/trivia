@@ -19,8 +19,8 @@ const ActionList = (props) => (
 				<hr className="mt-large mb-3"/>
         <h4 className="text-center mt-3">List of actions to date</h4>
 				<ListGroup variant="flush" >
-					{props.actions.map((action) => (
-						<ListGroup.Item className="text-center" key={action}>{action}</ListGroup.Item>
+					{props.actions.map((action, index) => (
+						<ListGroup.Item className="text-center shallow-bg" key={action+'-'+index}>{action}</ListGroup.Item>
 					))}
 				</ListGroup>
 

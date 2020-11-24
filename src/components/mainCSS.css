@@ -323,6 +323,10 @@ Color code from https://www.canva.com/learn/100-color-combinations/ - Autumn in 
 }
 
 
-.list-group-item {
+.shallow-bg {
     background-color:none !important;
+}
+
+#countdown {
+    font-size:4em;
 }

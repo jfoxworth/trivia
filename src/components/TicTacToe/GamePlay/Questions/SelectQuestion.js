@@ -48,6 +48,7 @@ class SelectQuestion extends React.Component
 
   // A place to hold the answer given
   setAnswer = ( thisAnswer ) => {
+    console.log('Setting answer to '+thisAnswer);
     this.setState(prevState=>({
         answer : thisAnswer
     }))
@@ -80,7 +81,7 @@ class SelectQuestion extends React.Component
 
 
   // Check to see if the current status produces a winner
-  checkForWinner = ()=>{ 
+  checkForWinner = (newSquares)=>{ 
     if ( ( newSquares[0]+newSquares[1]+newSquares[2]==3 ) ||
     ( newSquares[3]+newSquares[4]+newSquares[5]==3 ) ||
     ( newSquares[6]+newSquares[7]+newSquares[8]==3 ) ||
@@ -95,14 +96,14 @@ class SelectQuestion extends React.Component
         this.props.editGame({...this.props.game, gameOver:true, 
                                                 gameWinner:this.props.game.activeUser,
                                                 actions:this.props.game.actions.concat('Player X won the game')
-        });
+        }, this.props.gameId );
       
       }else{
         this.props.editGame({...this.props.game, gameOver:true, 
           gameWinner:this.props.game.activeUser,
           actions:this.props.game.actions.concat(this.props.game.players[this.props.game.activeUser]+' won the game')
 
-        });
+        }, this.props.gameId);
       }
     }
 
@@ -137,11 +138,12 @@ class SelectQuestion extends React.Component
   // When the answer is attempted
   answerQuestion = () => {
 
-    if ( this.state.answer == this.props.game.activeQuestion.correctAnswer)
+    console.log('comparing '+this.state.answer+' to '+this.props.game.activeQuestion.answerOptions[this.props.game.activeQuestion.correctAnswer]);
+    if ( this.state.answer == this.props.game.activeQuestion.answerOptions[this.props.game.activeQuestion.correctAnswer])
     {
 
       // Check to see of this answer produced a winner
-      let newSquares = this.props.game.squareSum;
+      let newSquares = JSON.parse(JSON.stringify(this.props.game.squareSum));
       newSquares[this.props.game.activeSquare] = this.props.game.activeUser == 0 ? -1 : 1;
 
       // Prep the action statement
@@ -157,7 +159,7 @@ class SelectQuestion extends React.Component
                                                 answeredArray:this.props.game.answeredArray.concat(this.props.game.activeQuestion.id),
                                                 squares:this.props.game.squares.map((el, mapIndex)=>
                                                     { if (mapIndex==this.props.game.activeSquare)
-                                                      { return {...el, inPlay:false, isAnswered:true, displayOptions:0 }
+                                                      { return {...el, inPlay:false, isAnswered:true, displayOptions:0, answerPlayer:this.props.game.activeUser }
                                                     }else { return {...el, inPlay:false, displayOptions:0 } } }
                                                     ), 
         }, this.props.gameId);
@@ -192,8 +194,8 @@ class SelectQuestion extends React.Component
 	
     return (
       <div className="ml-3">
-        <h4 className="text-center mt-3 mb-3">Current Question</h4>
-        <div className="text-center mt-3 mb-3">
+        <h4 className="mt-3 mb-3">Current Question</h4>
+        <div className="mt-3 mb-3">
           {this.props.game.activeQuestion.text}
         </div>
         <Form onChange={e => this.setAnswer( e.target.value )}>
@@ -207,6 +209,7 @@ class SelectQuestion extends React.Component
           ))}
 
           <Button variant="primary"
+                  className="center-me text-center"
                   onClick={ ()=>{ this.answerQuestion( ) } }>
             Submit Answer
           </Button>

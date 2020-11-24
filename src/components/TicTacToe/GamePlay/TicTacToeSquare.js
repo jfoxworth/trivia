@@ -84,7 +84,8 @@ class TicTacToeSquare extends React.Component
 														boardState:1,
 														squares:this.props.game.squares.map((el, mapIndex)=>
 														{ if (index==mapIndex){ return {...el, inPlay:true, question:question}}else{ return {...el, inPlay:false }}})}, 
-													this.props.gameId);
+													this.props.gameId)
+													.then( this.props.questionCountdown() );
 
 	}
 

@@ -43,7 +43,7 @@ const EditQuestionPage = (props) => {
 				<Container className="mt-large edit-container">
 					<Col>
 							<h1 className="center-me text-center mb-small">Edit Question</h1>
-							<div className="center-me text-center">(<Link to="/myQuestions"><small className="text-muted">Back to Questions</small></Link>)</div>
+							<div className="center-me text-center">(<Link to="/questions"><small className="text-muted">Back to Questions</small></Link>)</div>
 					</Col>
 					{admin && <ApproveButton question={question} questionId={props.questionId}/>}
 					<QuestionText question={question} questionId={props.questionId} />

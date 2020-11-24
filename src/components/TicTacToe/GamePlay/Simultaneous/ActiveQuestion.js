@@ -24,12 +24,12 @@ const SimultaneousActiveQuestion = (props) => {
     if ( this.props.game.activeQuestion.type == 'select' )
     {
       return ( <SelectQuestion game={ props.game } 
-                               gameId={ props.gameId }/> );
+                               gameId={ props.gameId } /> );
     
     }else if ( this.props.game.activeQuestion.type == 'enter' )
     {
       return ( <EnterQuestion game={ props.game } 
-                              gameId={ props.gameId }/> );
+                              gameId={ props.gameId } /> );
     }
   }
 

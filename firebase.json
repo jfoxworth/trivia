@@ -7,17 +7,11 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "firebase deploy",
+    "public": "y",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
     ]
   },
   "storage": {

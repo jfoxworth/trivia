@@ -47,6 +47,7 @@ class MainBoard extends React.Component {
                                  showOptions = {this.showOptions}
                                  questions = { this.props.questions }
                                  userId = { this.props.userId }
+                                 questionCountdown={this.props.questionCountdown}
                                  square={0}/>
               </div>
             </Col>
@@ -58,6 +59,7 @@ class MainBoard extends React.Component {
                                  showOptions = {this.showOptions}
                                  questions = { this.props.questions }
                                  userId = { this.props.userId }
+                                 questionCountdown={this.props.questionCountdown}
                                  square={1}/>
               </div>
             </Col>
@@ -69,6 +71,7 @@ class MainBoard extends React.Component {
                                  showOptions = {this.showOptions}
                                  questions = { this.props.questions }
                                  userId = { this.props.userId }
+                                 questionCountdown={this.props.questionCountdown}
                                  square={2}/>
               </div>
             </Col>
@@ -84,6 +87,7 @@ class MainBoard extends React.Component {
                                  showOptions = {this.showOptions}
                                  questions = { this.props.questions }
                                  userId = { this.props.userId }
+                                 questionCountdown={this.props.questionCountdown}
                                  square={3}/>
               </div>
             </Col>
@@ -95,6 +99,7 @@ class MainBoard extends React.Component {
                                  showOptions = {this.showOptions}
                                  questions = { this.props.questions }
                                  userId = { this.props.userId }
+                                 questionCountdown={this.props.questionCountdown}
                                  square={4}/>
               </div>
             </Col>
@@ -106,6 +111,7 @@ class MainBoard extends React.Component {
                                  showOptions = {this.showOptions}
                                  questions = { this.props.questions }
                                  userId = { this.props.userId }
+                                 questionCountdown={this.props.questionCountdown}
                                  square={5}/>
               </div>
             </Col>
@@ -121,6 +127,7 @@ class MainBoard extends React.Component {
                                  showOptions = {this.showOptions}
                                  questions = { this.props.questions }
                                  userId = { this.props.userId }
+                                 questionCountdown={this.props.questionCountdown}
                                  square={6}/>
               </div>
             </Col>
@@ -132,6 +139,7 @@ class MainBoard extends React.Component {
                                  showOptions = {this.showOptions}
                                  questions = { this.props.questions }
                                  userId = { this.props.userId }
+                                 questionCountdown={this.props.questionCountdown}
                                  square={7}/>
                                 </div>
             </Col>
@@ -143,6 +151,7 @@ class MainBoard extends React.Component {
                                  showOptions = {this.showOptions}
                                  questions = { this.props.questions }
                                  userId = { this.props.userId }
+                                 questionCountdown={this.props.questionCountdown}
                                  square={8}/>
               </div>
             </Col>
