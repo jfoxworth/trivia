@@ -1,0 +1,45 @@
+
+    
+    .login-form {
+        margin:50px auto;
+        width:400px;
+        padding:20px 40px;
+/*
+        background-color:#F8F8F8;
+        border-radius:15px;
+        border:1px solid #E8E8E8;
+*/
+    }
+
+    .clearBG {
+        background-color:#FFF !important;
+        border:0px !important;
+    }
+
+    .or-seperator {
+        margin-top:20px;
+        text-align:center;
+        border-top:1px solid #ccc;
+    }
+
+    .or-seperator i {
+        padding: 0 10px;
+        background:#fff;
+        position:relative;
+        top:-11px;
+        z-index:1;
+    }
+
+    .fbBg {
+        background-color:#507cc0 !important;
+    }
+
+    .twitterBg {
+        background-color:#64ccf1 !important;
+    }
+
+    .googleBg {
+        background-color: #df4930 !important;
+
+    }
+
