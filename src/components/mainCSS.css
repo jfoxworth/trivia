@@ -175,6 +175,13 @@ Color code from https://www.canva.com/learn/100-color-combinations/ - Autumn in 
     margin-left:30px !important;
 }
 
+.ml-xlarge {
+    margin-left:50px !important;
+}
+
+.ml-superlarge {
+    margin-left:100px !important;
+}
 
 
 .mr-tiny {
@@ -192,6 +199,14 @@ Color code from https://www.canva.com/learn/100-color-combinations/ - Autumn in 
 
 .mr-large {
     margin-right:30px !important;
+}
+
+.mr-xlarge {
+    margin-right:50px !important;
+}
+
+.mr-superlarge {
+    margin-right:100px !important;
 }
 
 .sidebar-container {
@@ -324,7 +339,7 @@ Color code from https://www.canva.com/learn/100-color-combinations/ - Autumn in 
 
 
 .shallow-bg {
-    background-color:none !important;
+    background-color:transparent !important;
 }
 
 #countdown {

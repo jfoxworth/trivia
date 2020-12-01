@@ -13,13 +13,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-// Typeahead stuff
-import 'react-bootstrap-typeahead/css/Typeahead.css';
-import { Typeahead } from 'react-bootstrap-typeahead';
 
+// Models
+import modelChallenge from '../../../models/challenge';
 
 // Action creators
 import { editGame } from '../../../store/actions/gameActions';
+import { createChallenge } from '../../../store/actions/challengeActions';
 
 
 class StartButton extends React.Component {
@@ -29,7 +29,10 @@ class StartButton extends React.Component {
 		}
 		
     handlePress =() =>{
-			this.props.editGame({...this.props.game, status:1 } , this.props.gameId);
+      console.log('The challenge is');
+      console.log(modelChallenge);
+      this.props.editGame({...this.props.game, status:1, playersArray:this.props.game.playersArray.concat(this.props.game.players[1]['id']) } , this.props.gameId);
+      this.props.createChallenge( this.props.game.players[1], this.props.gameId, modelChallenge, 0 );
     }
 
     
@@ -57,7 +60,8 @@ class StartButton extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        editGame: (game, gameId) => dispatch(editGame(game, gameId))
+        editGame: (game, gameId) => dispatch(editGame(game, gameId)),
+        createChallenge: (userId, gameId) => dispatch(createChallenge(userId, gameId))
     }
 }
 

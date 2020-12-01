@@ -99,7 +99,7 @@ class TicTacToeSetup extends React.Component
 
           { 
             !this.props.game.players[1] &&
-            this.props.game.playerType==0 &&
+            this.props.game.playerType==1 &&
             <Container>
               <div className="alert alert-info">
                 <strong>Two Players Needed!</strong> Challenge a player or change the type.

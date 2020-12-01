@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { signOut } from '../../store/actions/authActions'
 
-import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';

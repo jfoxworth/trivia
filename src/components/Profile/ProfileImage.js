@@ -12,7 +12,7 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 
 
-const ProfileImage = () => (
+const ProfileImage = (props) => (
 
     <Container>
         <Row>
@@ -20,7 +20,7 @@ const ProfileImage = () => (
         </Row>
 
         <Row>
-            <h2 className="text-center user-title">Trivia Master</h2>
+            <h2 className="text-center user-title">{props.profile.username}</h2>
         </Row>
     </Container>
 );

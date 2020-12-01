@@ -29,13 +29,13 @@ const GamesPage = () => {
 
 	return(
 
-		<div className="light-color">
+		<div className="">
 
 			<NavBar />
 
 			<Container className="mt-medium">
 
-				<div className="sidebar-container white-bg mt-large">
+				<div className="sidebar-container mt-large">
 
 					<Row><h1 className="center-me mt-large mb-large">Play Games</h1></Row>
 

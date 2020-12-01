@@ -23,6 +23,26 @@ import Countdown from './Countdown';
 // Action creators
 import { editGame } from '../../../store/actions/gameActions';
 
+// Squares label
+const squareLabels = [
+	'top left',
+	'top center',
+	'top right',
+	'middle left',
+	'center',
+	'middle right',
+	'bottom left',
+	'bottom center',
+	'bottom right'
+];
+
+// Users Labels
+const userLabels = [
+	'Player O',
+	'Player X'
+];
+
+
 
 class TicTacToeBoard extends React.Component 
 {
@@ -31,11 +51,14 @@ class TicTacToeBoard extends React.Component
 		this.state={timeRemaining: this.props.game.timeLimit };
 	}
 
+
+
 	questionCountdown = ()=>{
 		this.setState({
       timeRemaining: this.props.game.timeLimit
     });
 		let myTimer = setInterval(()=>{ 
+
 			this.setState({
 				timeRemaining: this.state.timeRemaining-1
 			});
@@ -43,11 +66,56 @@ class TicTacToeBoard extends React.Component
 			if (this.state.timeRemaining<0)
 			{
 				clearInterval(myTimer);
+				this.timedOutFail();
+			}
+			
+			if (this.props.game.boardState==0)
+			{
+				clearInterval(myTimer);
 			}
 		 }, 1000);
-//			this.props.editGame({...this.props.game, Countdown:type } , this.props.gameId);
 	}
 
+
+
+	timedOutFail = () =>{
+		console.log('FAIL');
+
+		// Update the game and move on
+		this.props.editGame({...this.props.game, activeUser:this.props.game.activeUser == 0 ? 1 : 0,
+			boardState:0,
+			actions: this.props.game.actions.concat(this.setActionStatement(this.props.game.playerType, this.props.game.activeQuestion)),
+			activeQuestion:{},
+			activeSquare:'',
+			answeredArray:this.props.game.answeredArray.concat(this.props.game.activeQuestion.id),
+			squares:this.props.game.squares.map((el, mapIndex)=>{ return {...el, inPlay:false, displayOptions:0 } } 
+					), 
+		}, this.props.gameId);
+
+	}
+
+
+
+	setActionStatement = (type, question) =>{
+    if (type==1)
+    {
+      return { correct:false,
+               type:type,
+               question:question,
+               dateTime: new Date(),
+               text: this.props.game.players[this.props.game.activeUser]['username']+' ran out of time trying to answer the '+squareLabels[this.props.game.activeSquare]+' square'
+      }
+    
+    }else if ( type==0)
+    {
+      return { correct:false,
+        type:type,
+        question:question,
+        dateTime: new Date(),
+        text: userLabels[this.props.game.activeUser]+' ran out of time trying to answer the '+squareLabels[this.props.game.activeSquare]+' square'
+      }
+		}
+	}
 
 	render(){
 		

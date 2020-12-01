@@ -14,6 +14,11 @@ const ChallengeActiveQuestion = (props) => (
       <div>Waiting on your opponent to answer</div>
     }
 
+    { props.game.players[props.game.activeUser]['id'] == props.userId &&
+      !props.game.activeQuestion.type &&
+      <div>Select a square</div>
+    }
+
 
     { props.game.players[props.game.activeUser]['id'] == props.userId &&
       props.game.activeQuestion.type=="Select" &&

@@ -19,7 +19,8 @@ export const createGame =  (game) => {
           userEmail : authorEmail,
           userAvatar : profile.avatar,
           dateCreated:new Date(),
-          players:[profile]
+          players:[profile],
+          playersArray:[authorId],
       }).then((docRef)=>{
           dispatch({type:'CREATE_GAME', game});
           resolve(docRef.id);

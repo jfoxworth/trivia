@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import { signOut } from '../../store/actions/authActions'
 
-import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import Row from 'react-bootstrap/Row';
 
 import { Link } from 'react-router-dom'
 
@@ -20,8 +20,10 @@ const SignedOutLinks = (props) => {
     return (
 
         <div>
-            <Nav.Link as={Link} to="/login">Sign In</Nav.Link>
-            <Nav.Link as={Link} to="/register">Register</Nav.Link>
+            <Row className="mt-tiny mr-large">
+                <Nav.Link as={Link} to="/login" className="mr-medium ml-medium">Sign In</Nav.Link>
+                <Nav.Link as={Link} to="/register">Register</Nav.Link>
+            </Row>
         </div>
 
     )

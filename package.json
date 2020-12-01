@@ -21,6 +21,7 @@
     "babel-preset-react": "6.24.1",
     "bootstrap": "^4.5.3",
     "css-loader": "0.28.4",
+    "date-fns": "^2.16.1",
     "firebase": "^8.0.2",
     "firebase-tools": "^8.15.0",
     "live-server": "^1.2.0",

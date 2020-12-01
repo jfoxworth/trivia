@@ -35,7 +35,7 @@ const BoardList = (props) => {
 
       <ListGroup variant="flush" className="sidebar-container">
 
-        <ListGroup.Item className="sidebar-title text-center"><h5>Boards</h5></ListGroup.Item>
+        <ListGroup.Item className="shallow-bg sidebar-title text-center"><h5>Boards</h5></ListGroup.Item>
 
         {props.boards.filter((board)=>{if (((props.showProps.diff[0] && board.difficulty=="Easy") ||
 																								 (props.showProps.diff[1] && board.difficulty=="Medium") ||
@@ -47,7 +47,7 @@ const BoardList = (props) => {
 																								{ return true } })
 
           .map((board, index) => (
-            <ListGroup.Item className={"sidebar-item " + (board.status==0 ? 'alert-warning' : '')} key={board.id}>
+            <ListGroup.Item className={"shallow-bg sidebar-item " + (board.status==0 ? 'alert-warning' : '')} key={board.id}>
             <Row>
 
               <Col xs={1}>

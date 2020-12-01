@@ -2,7 +2,7 @@
 
 
 
-export const createChallenge =  (challenge) => {
+export const createChallenge =  (userObj, gameId, challenge, gameType) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => 
   new Promise(function(resolve, reject) {
     {
@@ -13,12 +13,16 @@ export const createChallenge =  (challenge) => {
       const authorEmail = getState().firebase.auth.email;
       firestore.collection('challenges').add({
           ...challenge,
-          userId : authorId,
-          userName : profile.username,
-          userEmail : authorEmail,
-          userAvatar : profile.avatar,
+          challengedId : userObj.id,
+          challengedName : userObj.username,
+          challengedAvatar : userObj.avatar,
+          challengerId : authorId,
+          challengerName : profile.username,
+          challengerAvatar : profile.avatar,
           dateCreated:new Date(),
-          players:[profile]
+          gameId : gameId,
+          gameType : gameType ? gameType : 0,
+          accepted : false,
       }).then((docRef)=>{
           dispatch({type:'CREATE_CHALLENGE', challenge});
           resolve(docRef.id);

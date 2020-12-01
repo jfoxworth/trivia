@@ -19,6 +19,7 @@ export default {
   useBoards:false,                  // Whether or not to bring in additional boards
   useQuestions:false,               // Whether or not to bring in additional questions
   players:[],                       // Array of player objects
+  playersArray:[],                  // Array of player ids used to find games for users
   boards:[],                        // Array of board objects
   boardQuestions:[],                // Array of questions from the boards
   questions:[],                     // Array of question objects
@@ -28,11 +29,11 @@ export default {
   diffLevel:['Easy', 'Medium', 'Difficult', 'Master'], 
   potentialQuestions:0,             // The number of questions possible given the settings
   challengeAccepted:false,          // true when the challenged user accepts the challenge
-  numAttempts:0,                    // The number of times that a user has attempted to answer a question
   answeredArray:[],                 // Array holding the ids of questions that have been answered in this game
   attempedArray:[],                 // Array holding the ids of questions that have been attempted in this game
                                     // This is used to prevent duplicate questions being asked until impossible
   boardState:0,                     // 0 for open board, 1 for active question
+  timeOnBoard:60,                   // The time remaining for a user to answer a question - displayed
 
   // Tic Tac Toe Items
   squareSum : [0,0,0,0,0,0,0,0,0],  // Array of squares set to -1 or 1 and used to see if game is over

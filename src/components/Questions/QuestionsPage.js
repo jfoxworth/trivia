@@ -47,13 +47,13 @@ class QuestionsPage extends React.Component {
 
 			return (
 
-				<div className="light-color">
+				<div className="">
 
 					<NavBar />
 
 					<Container className="mt-medium">
 
-						<div className="sidebar-container white-bg mt-large">
+						<div className="sidebar-container mt-large">
 
 							<Row>{this.props.auth.uid && <QuestionHeader />}</Row>
 

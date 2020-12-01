@@ -47,13 +47,13 @@ class BoardsPage extends React.Component {
 
 
 			return (
-				<section className="light-color">
+				<section className="">
 
 					<NavBar />
 
 					<Container className="mt-medium">
 
-						<div className="sidebar-container white-bg mt-large">
+						<div className="sidebar-container mt-large">
 
 							<Row><BoardHeader authId={this.props.auth.uid} /></Row>
 

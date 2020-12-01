@@ -35,7 +35,7 @@ const QuestionList = (props) => {
 			<div>
 				<ListGroup variant="flush" className="">
 
-						<ListGroup.Item className="sidebar-title text-center mt-medium"><h5>Questions</h5></ListGroup.Item>
+						<ListGroup.Item className="shallow-bg sidebar-title text-center mt-medium"><h5>Questions</h5></ListGroup.Item>
 
 						{props.questions.filter((que)=>{if (((props.showProps.diff[0] && que.difficulty=="Easy") ||
 																								 (props.showProps.diff[1] && que.difficulty=="Medium") ||
@@ -46,7 +46,7 @@ const QuestionList = (props) => {
 																								  (props.showProps.games[1] && que.bigboard)))
 																								{ return true } })
 							.map((ques, index) => (
-								<ListGroup.Item className={"sidebar-item " + (ques.status==0 ? 'alert-warning' : '')} key={ques.id}>
+								<ListGroup.Item className={"shallow-bg sidebar-item " + (ques.status==0 ? 'alert-warning' : '')} key={ques.id}>
 										<Row>
 												<Col xs={1}>
 														<BadgeItem badgeType = {ques.difficulty}/>

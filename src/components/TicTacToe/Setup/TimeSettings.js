@@ -33,8 +33,9 @@ class TimeSettings extends React.Component {
 			this.props.editGame({...this.props.game, timeLimited:time } , this.props.gameId);
 		}
 
-		changeTimer = (event)=>{
-			this.props.editGame({...this.props.game, timeLimit:event.target.value } , this.props.gameId);
+		changeTimer = (time)=>{
+      console.log(time);
+			this.props.editGame({...this.props.game, timeLimit:parseInt(time.val) } , this.props.gameId);
 		}
 
     handleChange =(selectedOptions) =>{
@@ -102,10 +103,14 @@ class TimeSettings extends React.Component {
                   <Form.Label>Time Limit</Form.Label>
                   <Form.Control as="select" custom disabled={!this.props.game.timeLimited}
                     className="width-300 center-me"
-                    onChange={ ()=>{this.changeTimer(event) } }>
+                    value="this.props.game.timeLimit"
+                    onChange={e => this.changeTimer({ val: e.target.value })}>
+                    <option value="15">15s</option>
                     <option value="30">30s</option>
                     <option value="45">45s</option>
                     <option value="60">60s</option>
+                    <option value="75">75s</option>
+                    <option value="90">90s</option>
                   </Form.Control>
                 </Form.Group>
               </Form>
