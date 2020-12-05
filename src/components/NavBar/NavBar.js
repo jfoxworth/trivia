@@ -12,6 +12,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { faGamepad } from '@fortawesome/free-solid-svg-icons';
 import { faCubes } from '@fortawesome/free-solid-svg-icons';
+import { faTags } from '@fortawesome/free-solid-svg-icons';
+
 
 // import css
 import '../mainCSS.css';
@@ -35,6 +37,13 @@ const MainNavBar = (props) => {
                     <Nav.Link as={Link} to="/games" className="mr-medium mt-tiny">
                         <FontAwesomeIcon icon={faGamepad} className="margin-right-small" />
                         Games
+                    </Nav.Link>
+
+
+
+                    <Nav.Link as={Link} to="/tags" className="mr-medium mt-tiny">
+                        <FontAwesomeIcon icon={faTags} className="margin-right-small" />
+                        Tags
                     </Nav.Link>
 
 {/*

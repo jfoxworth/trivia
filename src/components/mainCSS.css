@@ -11,6 +11,9 @@ body {
     border:none !important;
 }
 
+.border-me {
+    border-bottom:1px solid #ccc;
+}
 /* 
 Color code from https://www.canva.com/learn/100-color-combinations/ - Modern and Urban Cheerful blues and pink
 */
@@ -261,6 +264,11 @@ Color code from https://www.canva.com/learn/100-color-combinations/ - Autumn in 
 .pb-small {
     padding-bottom:10px !important;
 }
+
+.pb-medium {
+    padding-bottom:20px !important;
+}
+
 
 .white-text {
     color:#fff;

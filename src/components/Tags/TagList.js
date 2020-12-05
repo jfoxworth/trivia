@@ -9,10 +9,16 @@ import '../mainCSS.css';
 // Import Bootstrap Items
 import ListGroup from 'react-bootstrap/ListGroup';
 import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 // Typeahead stuff
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { Typeahead } from 'react-bootstrap-typeahead';
+
+// Font Awesome Items
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar} from '@fortawesome/free-solid-svg-icons';
 
 
 class TagList extends React.Component {
@@ -34,44 +40,40 @@ class TagList extends React.Component {
       <div className="width-80p center-me">
 
 
-        <h3 className="mt-medium mb-small">Find a Tag</h3>
+        { !!this.props.userId && <div>
+          <h2 className="text-center mt-large">My Tags</h2>
+
+          {this.props.tags.filter((tag)=>{if (tag.userId==this.props.userId){ return true }})
+            .length==0 && <div className="lead">You have not created any tags</div> }
+
+        </div>}
 
 
-        {this.props.tags && 
-          <Form.Group>
-            <Typeahead
-              id="tagValue"
-              onInputChange={this.handleChange}
-              labelKey="tagName"
-              options={this.props.tags}
-              placeholder="Start Typing to see matching tags ..."
-              onChange={this.handleChange}
-            />
-          </Form.Group>}
 
-        
+        <h2 className="text-center mt-large">List of Tags</h2>
 
-          <ListGroup variant="flush" className="mt-large">
+        <ListGroup variant="flush" className="mt-large no-bg">
 
-            {this.props.tags.filter((tag)=>{if ((tag.status==1) || (tag.userId==this.props.userId)){ return true }})
+          {this.props.tags.filter((tag)=>{if (tag.userId==this.props.userId){ return true }})
               .filter((tag)=>tag.tagName.match(this.state.tagPrompt))
               .map((tag, index) => (
-                <ListGroup.Item  key={tag.id}>
-                  {tag.tagName} : <small className="text-muted">{tag.description}</small> 
+                <ListGroup.Item  key={tag.id} className="no-bg">
+                  <Row className="border-me pb-medium">
+                    <Col sm={3}>{tag.tagName}</Col>
+                    <Col sm={8}><small className="text-muted">{tag.description}</small></Col>
+                    <Col sm={1}><FontAwesomeIcon icon={faStar} className="margin-right-small" /></Col>
+                  </Row>
                 </ListGroup.Item>
               ))}
 
-          </ListGroup>
-
-
-
-
-        <ListGroup variant="flush" className="mt-large">
-
-          {this.props.tags.filter((tag)=>{if ((tag.status==1) || (tag.userId==this.props.userId)){ return true }})
+          {this.props.tags.filter((tag)=>{if ((tag.status==1) && (tag.userId!=this.props.userId)){ return true }})
             .map((tag, index) => (
-              <ListGroup.Item  key={tag.id}>
-                {tag.tagName} : <small className="text-muted">{tag.description}</small> 
+              <ListGroup.Item  key={tag.id} className="no-bg">
+                <Row className="border-me pb-medium">
+                  <Col sm={3}>{tag.tagName}</Col>
+                  <Col sm={8}><small className="text-muted">{tag.description}</small></Col>
+                  <Col sm={1}></Col>
+                </Row>
               </ListGroup.Item>
             ))}
 

@@ -15,6 +15,7 @@ import Row from 'react-bootstrap/Row';
 // Import Components
 import NavBar from '../NavBar/NavBar';
 import TagsHeader from './TagsHeader';
+import TagsDescription from './TagsDescription';
 import TagList from './TagList';
 import Footer from '../Footer/FooterPage';
 
@@ -31,15 +32,16 @@ class TagsPage extends React.Component {
 
 
 			return (
-				<div className="light-color ">
+				<div className="">
 
 					<NavBar />
 
 					<Container className="mt-medium">
 
-						<div className="sidebar-container white-bg mt-large">
+						<div className="sidebar-container mt-large">
 
-              <TagsHeader userId={this.props.auth.uid}/>
+              {this.props.auth.uid && <TagsHeader userId={this.props.auth.uid}/>}
+              {!this.props.auth.uid && <TagsDescription/>}
               <TagList tags={this.props.tags} userId={this.props.auth.uid}/>
 
 
