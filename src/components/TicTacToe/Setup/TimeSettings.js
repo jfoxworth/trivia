@@ -101,9 +101,9 @@ class TimeSettings extends React.Component {
               <Form className="width-300 center-me">
                 <Form.Group controlId="timeId" >
                   <Form.Label>Time Limit</Form.Label>
-                  <Form.Control as="select" custom disabled={!this.props.game.timeLimited}
+                  <Form.Control as="select" disabled={!this.props.game.timeLimited}
                     className="width-300 center-me"
-                    value="this.props.game.timeLimit"
+                    value={this.props.game.timeLimit}
                     onChange={e => this.changeTimer({ val: e.target.value })}>
                     <option value="15">15s</option>
                     <option value="30">30s</option>

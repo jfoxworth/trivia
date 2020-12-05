@@ -23,3 +23,11 @@
 .margin-right-small {
     margin-right:10px;
 }
+
+.selectProfileBox {
+    max-width:800px !important;
+}
+
+.selectProfileBoxInner {
+    max-height:500px !important;
+}

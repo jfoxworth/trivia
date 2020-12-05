@@ -31,21 +31,23 @@ import GameShow from './GameShow';
 	
 const QuestionList = (props) => {
 
+	const qList = props.questions.filter((que)=>{if (((props.showProps.diff[0] && que.difficulty=="Easy") ||
+	(props.showProps.diff[1] && que.difficulty=="Medium") ||
+	(props.showProps.diff[2] && que.difficulty=="Difficult") ||
+	(props.showProps.diff[3] && que.difficulty=="Trivia Master")) &&
+	((que.tagList.includes(props.showProps.tag))||(props.showProps.tag=='All')) &&
+	((props.showProps.games[0] && que.tictactoe)||
+	 (props.showProps.games[1] && que.bigboard)))
+ { return true } })
+
+
 		return (
 			<div>
 				<ListGroup variant="flush" className="">
 
-						<ListGroup.Item className="shallow-bg sidebar-title text-center mt-medium"><h5>Questions</h5></ListGroup.Item>
+						<ListGroup.Item className="shallow-bg sidebar-title text-center mt-medium"><h5>Questions - {qList.length}</h5></ListGroup.Item>
 
-						{props.questions.filter((que)=>{if (((props.showProps.diff[0] && que.difficulty=="Easy") ||
-																								 (props.showProps.diff[1] && que.difficulty=="Medium") ||
-																								 (props.showProps.diff[2] && que.difficulty=="Difficult") ||
-																								 (props.showProps.diff[3] && que.difficulty=="Trivia Master")) &&
-																								 ((que.tagList.includes(props.showProps.tag))||(props.showProps.tag=='All')) &&
-																								 ((props.showProps.games[0] && que.tictactoe)||
-																								  (props.showProps.games[1] && que.bigboard)))
-																								{ return true } })
-							.map((ques, index) => (
+						{qList.map((ques, index) => (
 								<ListGroup.Item className={"shallow-bg sidebar-item " + (ques.status==0 ? 'alert-warning' : '')} key={ques.id}>
 										<Row>
 												<Col xs={1}>

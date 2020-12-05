@@ -37,11 +37,12 @@ const MainNavBar = (props) => {
                         Games
                     </Nav.Link>
 
+{/*
                     <Nav.Link as={Link} to="/boards" className="mr-medium mt-tiny">
                         <FontAwesomeIcon icon={faCubes} className="margin-right-small" />
                         Boards
                     </Nav.Link>
-
+*/}
                     <Nav.Link as={Link} to="/questions" className="mr-medium mt-tiny">
                         <FontAwesomeIcon icon={faQuestionCircle} className="margin-right-small" />
                         Questions

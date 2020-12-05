@@ -46,13 +46,7 @@ class TicTacToeOption extends React.Component {
           <Col lg={1}></Col>
 
           <Col lg={4}>
-            <div><img src="/images/tictactoe.jpg" height="200" /></div>
-            <div className="mt-3 mb-3">
-                <Button variant="primary" onClick={()=>{this.props.createGame(modelGame).then((id)=> 
-                                                    { this.setState({ redirect: "/TicTacToe/"+id });} )}}>
-                  Start Tic Tac Toe Game
-                </Button>
-            </div>
+            <div><img src="/images/TTT1.png" height="200" /></div>
           </Col>
           <Col lg={6}>
             <p className="text-justify lead">Start a Tic Tac Toe trivia game by clicking the button below the image. You can then 
@@ -62,6 +56,35 @@ class TicTacToeOption extends React.Component {
           </Col>
 
           <Col lg={1}></Col>
+
+        </Row>
+
+
+        <Row>
+  
+          <Col lg={1}></Col>
+
+          <Col lg={4}>
+            { this.props.auth &&
+              <div className="mt-3 mb-3">
+                  <Button variant="primary" onClick={()=>{this.props.createGame(modelGame).then((id)=> 
+                                                      { this.setState({ redirect: "/TicTacToe/"+id });} )}}>
+                    Start Tic Tac Toe Game
+                  </Button>
+            </div> }
+          </Col>
+          <Col lg={6}>
+            { !this.props.auth &&
+              <div className="mt-3 mb-3">
+                  <Button variant="info" onClick={()=>{ this.setState({ redirect: "/register"+id });} }>
+                    Create an account
+                  </Button>
+              </div>
+            }
+          </Col>
+
+          <Col lg={1}></Col>
+
         </Row>
       
       </div>

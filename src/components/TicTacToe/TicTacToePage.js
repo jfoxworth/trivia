@@ -54,7 +54,8 @@ const TicTacToePage = (props) => {
 				<TicTacToeBoard game={ props.game } 
 												gameId={props.match.params.gameId}
 												questions={props.questions} 
-												userId={props.userId} />
+												userId={props.userId} 
+												profile={props.profile}/>
 			</Container>}
 
 
@@ -93,6 +94,7 @@ const mapStateToProps = (state, ownProps) => {
             boards : state.firestore.ordered.boards ? state.firestore.ordered.boards : [],
 						questions : state.firestore.data.games && state.firestore.ordered.questions ? setQuestions() : [],
 						userId : state.firebase.auth ? state.firebase.auth.uid : '',
+						profile:state.firebase.profile ? state.firebase.profile : {},
 	}
 }
 

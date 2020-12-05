@@ -10,7 +10,12 @@ export default (state = gamesReducerDefaultState, action) => {
       console.log('created game', action.game);
       return state;
 
-    case 'SET_GAME':
+    case 'EDIT_GAME':
+      console.log('edited game', action.game);
+      return state;
+
+
+        case 'SET_GAME':
       return {
         ...state,
         text: action.text

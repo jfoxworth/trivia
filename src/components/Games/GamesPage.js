@@ -1,13 +1,16 @@
 
 import React from 'react';
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+
 
 // Import Components
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/FooterPage';
 import TicTacToeOption from './TicTacToeOption';
 import BigBoardOption from './BigBoardOption';
-import TicTacToeModal from './TicTacToeModal';
-import BigBoardModal from './BigBoardModal';
+import GameList from '../Profile/GameList';
 
 
 // Import CSS
@@ -22,10 +25,8 @@ import Row from 'react-bootstrap/Row';
 
 
 
-const GamesPage = () => {
+const GamesPage = (props) => {
 
-	const [TTTModalShow, setTTTModalShow] = React.useState(false);
-	const [BBModalShow, setBBModalShow] = React.useState(false);
 
 	return(
 
@@ -37,11 +38,15 @@ const GamesPage = () => {
 
 				<div className="sidebar-container mt-large">
 
-					<Row><h1 className="center-me mt-large mb-large">Play Games</h1></Row>
+					<Row><h1 className="center-me mt-large mb-large">Play Tic Tac Toe</h1></Row>
+
+					<Row className="mb-large">
+						<TicTacToeOption auth={props.auth}/>
+						{/*<BigBoardOption  />*/}
+					</Row>
 
 					<Row>
-						<TicTacToeOption setModalShow={setTTTModalShow}  />
-						<BigBoardOption  setModalShow={setBBModalShow}  />
+						<GameList games={props.games} auth={props.auth}/>
 					</Row>
 
 				</div>
@@ -50,19 +55,24 @@ const GamesPage = () => {
 
 			<Footer />
 
-			<TicTacToeModal
-        show={TTTModalShow}
-        onHide={() => setTTTModalShow(false)}
-      />
-
-			<BigBoardModal
-        show={BBModalShow}
-        onHide={() => setBBModalShow(false)}
-      />
-
 		</div>
 	)
 }
 
 
-export default GamesPage;
+
+
+const mapStateToProps = (state) => {
+	return {
+		auth:state.firebase.auth,
+		games : state.firestore.ordered.games ? state.firestore.ordered.games : [],
+	}
+}
+
+export default compose(
+	connect(mapStateToProps),
+	firestoreConnect(props=>[
+		{ collection:'games',
+			where :['playersArray', 'array-contains', props.auth.uid ? props.auth.uid : '' ]},
+	])
+)(GamesPage);

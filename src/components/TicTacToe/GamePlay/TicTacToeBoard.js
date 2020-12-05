@@ -118,6 +118,7 @@ class TicTacToeBoard extends React.Component
 	}
 
 	render(){
+
 		
 		return (
 
@@ -137,7 +138,9 @@ class TicTacToeBoard extends React.Component
 
 					<Col sm={4}>
 
-						<TurnDisplay game = { this.props.game }  />
+						<TurnDisplay game = { this.props.game }  
+												 profile = { this.props.profile }
+												 userId = {this.props.userId} />
 
 						{ !this.props.game.gameOver && <hr />}
 

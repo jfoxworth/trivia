@@ -40,33 +40,15 @@ class TicTacToeSquare extends React.Component
 
 		let newQuestion = {};
 
-		if ( this.props.game.numAttempts < this.props.game.boardQuestions.length )
+		let flag=0;
+		while (flag==0)
 		{
-			let flag=0;
-			while (flag==0)
+			let num = Math.floor(Math.random() * this.props.questions.length) + 1  ;
+			console.log(num);
+			if ( !this.props.game.answeredArray.includes(this.props.questions[num]['id']) )
 			{
-				let num = Math.floor(Math.random(0, this.props.game.boardQuestions.length)*100);
-				if ( !this.props.game.boardQuestions[num]['isAnswered'] )
-				{
-					newQuestion = this.props.game.boardQuestions[num];
-					flag=1;
-				}
-			}
-		
-		}else
-		{
-			let flag=0;
-			while (flag==0)
-			{
-				let num = Math.floor(Math.random() * this.props.questions.length) + 1  ;
-				console.log(num);
-				console.log(this.props.questions);
-				console.log(this.props.questions.length);
-				if ( !this.props.game.answeredArray.includes(this.props.questions[num]['id']) )
-				{
-					newQuestion = this.props.questions[num];
-					flag=1;
-				}
+				newQuestion = this.props.questions[num];
+				flag=1;
 			}
 		}
 		return newQuestion
@@ -79,8 +61,9 @@ class TicTacToeSquare extends React.Component
 	// Make the question the active one for the player to solve it
 	attemptQuestion = (question, index) => {
 
+
 		this.props.editGame({...this.props.game, 
-														activeQuestion:question,
+														activeQuestion:{...question, displayOptions:1},
 														boardState:1,
 														squares:this.props.game.squares.map((el, mapIndex)=>
 														{ if (index==mapIndex){ return {...el, inPlay:true, question:question}}else{ return {...el, inPlay:false }}})}, 
@@ -92,7 +75,7 @@ class TicTacToeSquare extends React.Component
 
 	render(){
 
-		// If the game is over
+		{/*// If the game is over
 		if ( this.props.gameOver )
 		{
 			return (
@@ -102,7 +85,10 @@ class TicTacToeSquare extends React.Component
 
 
 		// The square has been answered for team 0
-		}else if ( ( this.props.game.squares[this.props.square].isAnswered) &&
+		}else 
+	*/}
+		
+		if ( ( this.props.game.squares[this.props.square].isAnswered) &&
 				 ( this.props.game.squares[this.props.square].answerPlayer == 0 ) )
 		{
 			return (
@@ -124,7 +110,8 @@ class TicTacToeSquare extends React.Component
 		// The options are being shown for this unanswered square
 		}else if ( ( this.props.game.squares[this.props.square].displayOptions == 1 ) &&
 							 ( !this.props.game.squares[this.props.square].inPlay ) &&
-							 ( this.props.game.activeSquare == this.props.square ) )
+							 ( this.props.game.activeSquare == this.props.square ) &&
+								 !this.props.game.gameOver )
 		{
 			return (
 				<div className="showPrompts marginTopBig">
@@ -160,7 +147,7 @@ class TicTacToeSquare extends React.Component
 		
 
 		// The board is locked because someone is attempting a question
-		}else if ( this.props.game.boardState==1 ) 
+		}else if ( this.props.game.boardState==1 || this.props.game.gameOver ) 
 		{
 			return (
 				<div style={{width:150, height:150}}></div>

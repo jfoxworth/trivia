@@ -88,13 +88,14 @@ class TicTacToeSetup extends React.Component
           <NumQue game={ this.props.game } 
                       gameId={ this.props.gameId } />
 
+{/*}          
           <hr/>
 
           <BoardImport game={ this.props.game } 
                        gameId={ this.props.gameId }
                        boards={ this.props.boards } 
                        showProps={this.state.showProps}/>
-
+      */}
           <hr/>
 
           { 

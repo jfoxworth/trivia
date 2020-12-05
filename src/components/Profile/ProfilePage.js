@@ -16,7 +16,6 @@ import Col from 'react-bootstrap/Col';
 import NavBar from '../NavBar/NavBar';
 import ProfileImage from './ProfileImage';
 import ProfileTags from './ProfileTags';
-import ProfileButtons from './ProfileButtons';
 import Footer from '../Footer/FooterPage';
 import ChallengeList from './ChallengeList';
 import GameList from './GameList';
@@ -34,7 +33,7 @@ const ProfilePage = (props) => (
 			<Row>
 				
 				<Col sm={6}>
-					<ProfileImage profile={props.profile} />
+					<ProfileImage uid={props.auth.uid} profile={props.profile} />
 				</Col>
 
 				<Col sm={6}>
@@ -52,7 +51,7 @@ const ProfilePage = (props) => (
 				<Container>
 					<Col>
 						<ChallengeList challenges={props.challenges} games={props.games}/>
-						<GameList games={props.games}/>
+						<GameList games={props.games} auth={props.auth}/>
 					</Col>
 				</Container>
 

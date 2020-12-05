@@ -8,6 +8,9 @@ import './homeCSS.css';
 import MainNavBar from '../NavBar/NavBar';
 import SplashImage from './SplashImage';
 import TTTIntro from './TTTIntro';
+import PlayAnywhere from './playAnywhere';
+import SundaySchool from './sundayschool';
+import FriendsPlaying from './friendsPlaying';
 
 
 
@@ -16,6 +19,9 @@ const HomePage = () => (
       <MainNavBar />
       <SplashImage />
       <TTTIntro />
+      <PlayAnywhere />
+      <SundaySchool />
+      <FriendsPlaying />
       <Footer />
       
   </div>

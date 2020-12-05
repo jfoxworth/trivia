@@ -31,8 +31,9 @@ class StartButton extends React.Component {
     handlePress =() =>{
       console.log('The challenge is');
       console.log(modelChallenge);
-      this.props.editGame({...this.props.game, status:1, playersArray:this.props.game.playersArray.concat(this.props.game.players[1]['id']) } , this.props.gameId);
-      this.props.createChallenge( this.props.game.players[1], this.props.gameId, modelChallenge, 0 );
+      this.props.game.playerType==1 ? this.props.editGame({...this.props.game, status:1, playersArray:this.props.game.playersArray.concat(this.props.game.players[1]['id']) } , this.props.gameId) :
+                                      this.props.editGame({...this.props.game, status:1, challengeAccepted:true } , this.props.gameId)
+      this.props.game.playerType==1 ? this.props.createChallenge( this.props.game.players[1], this.props.gameId, modelChallenge, 0 ) : '';
     }
 
     

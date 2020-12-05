@@ -26,7 +26,7 @@ const ChallengeTurnDisplay = (props) => {
 						{props.game.activeUser == 0 &&
 									<img src="/images/greencheck.png" className="check-show" height="25px" width="25px"/>}
 						<div className="text-center center-me mt-small">
-							<img src="/images/profileImage.png" height="75px" width="75px"/>
+							<div className={'center-me avatars'+props.game.players[0]['avatarpage']+'-image-medium avatar'+props.game.players[0]['avatarpage']+'-'+props.game.players[0]['avatar']}></div>
 						</div>
 						<Row>
 							<div className="text-center center-me mt-small">
@@ -42,7 +42,7 @@ const ChallengeTurnDisplay = (props) => {
 						{props.game.activeUser == 1 &&
 									<img src="/images/greencheck.png" className="check-show" height="25px" width="25px"/>}
 						<div className="text-center center-me mt-small">
-							<img src="/images/profileImage.png" height="75px" width="75px"/>
+							<div className={'center-me avatars'+props.game.players[1]['avatarpage']+'-image-medium avatar'+props.game.players[1]['avatarpage']+'-'+props.game.players[1]['avatar']}></div>
 						</div>
 						<Row>
 							<div className="text-center center-me mt-small">

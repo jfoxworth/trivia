@@ -16,13 +16,16 @@ import '../mainCSS.css';
 
 const SignedInLinks = (props) => {
 
+    const imageClass='mr-small avatars'+props.profile.avatarpage+'-image-nav avatar'+props.profile.avatarpage+'-'+props.profile.avatar;
+
     return (
 
         <Row className="ml-small mr-small">
 
+            <div className={imageClass}></div>
+
             <Dropdown>
-                <Dropdown.Toggle className="no-bg" id="navbar-dropdown">
-                    <img className="mr-small" src="/images/profileImage.png" width="40px" height="40px"/>
+                <Dropdown.Toggle className="no-bg mt-small" id="navbar-dropdown">
                     {props.profile.username}
                 </Dropdown.Toggle>
 

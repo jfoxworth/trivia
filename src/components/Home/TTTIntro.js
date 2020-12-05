@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 
 const TTTIntro = () => (
 
-  <Container>
+  <Container className="mb-large">
     
     <h2 className="mt-large mb-medium text-center center-me">Play Trivia Tic Tac Toe</h2>
 
@@ -16,17 +16,17 @@ const TTTIntro = () => (
 
     <Row>
 
-      <Col sm={6}>
-        <img src="/images/TTT1.png" width="100%" />
+      <Col sm={6} className="text-right">
+        <img src="/images/contestants.png" height="300px" />
       </Col>
 
       <Col sm={6}>
         <h3 className="text-center center-me">How it works</h3>
-        <ul classsName="ml-medium">
-          <li className="mt-small lead">Create a game</li>
+        <ul className="ml-medium">
+          <li className="mt-small lead">Start a game</li>
+          <li className="mt-small lead">Challenge a friend</li>
           <li className="mt-small lead">Choose the question subjects</li>
           <li className="mt-small lead">Choose the difficulty level</li>
-          <li className="mt-small lead">Challenge a friend</li>
           <li className="mt-small lead">Play side by side or across the country</li>
         </ul>
       </Col>
