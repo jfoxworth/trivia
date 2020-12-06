@@ -1,6 +1,7 @@
 export default { 	
 
   // Overall game items that apply to all games
+  gameType:0,                       // 0 for tictactoe, 1 for big board
   name:'Game Name',                 // Name of the game
   dateCreated:0,                    // Date that the game was created
   userId:'',                        // ID of the creator
@@ -33,12 +34,16 @@ export default {
   attempedArray:[],                 // Array holding the ids of questions that have been attempted in this game
                                     // This is used to prevent duplicate questions being asked until impossible
   boardState:0,                     // 0 for open board, 1 for active question
-  timeOnBoard:60,                   // The time remaining for a user to answer a question - displayed
 
   // Tic Tac Toe Items
   squareSum : [0,0,0,0,0,0,0,0,0],  // Array of squares set to -1 or 1 and used to see if game is over
   activeSquare : 0,                 // Which square is active
-  
+
+  //  Big Board Items
+  questionsPerColumn:5,             // The number of questions in each column
+  questionSet:[],                   // The set of questions for the board
+  bonusQuestion:{},                 // The question asked at the end
+
   // Array of squares holding the square object, which has a question, etc
   squares : Array(9).fill(
     { 

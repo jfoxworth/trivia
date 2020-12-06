@@ -38,7 +38,7 @@ export const editGame = (game, gameId) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => 
     new Promise(function(resolve, reject) {
     {    // make async call
-      const firestore = getFirestore();
+          const firestore = getFirestore();
       const profile = getState().firebase.profile;
       const authorId = getState().firebase.auth.uid;
       const authorEmail = getState().firebase.auth.email;

@@ -38,11 +38,12 @@ const GamesPage = (props) => {
 
 				<div className="sidebar-container mt-large">
 
-					<Row><h1 className="center-me mt-large mb-large">Play Tic Tac Toe</h1></Row>
-
 					<Row className="mb-large">
 						<TicTacToeOption auth={props.auth}/>
-						{/*<BigBoardOption  />*/}
+					</Row>
+
+					<Row className="mb-large">
+						<BigBoardOption auth={props.auth} />
 					</Row>
 
 					<Row>

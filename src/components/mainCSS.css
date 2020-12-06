@@ -142,6 +142,9 @@ Color code from https://www.canva.com/learn/100-color-combinations/ - Autumn in 
     margin-top:50px !important;
 }
 
+.mt-verylarge {
+    margin-top:150px !important;
+}
 
 
 .mb-tiny {
@@ -159,6 +162,11 @@ Color code from https://www.canva.com/learn/100-color-combinations/ - Autumn in 
 .mb-large {
     margin-bottom:50px !important;
 }
+
+.mb-verylarge {
+    margin-bottom:150px !important;
+}
+
 
 
 

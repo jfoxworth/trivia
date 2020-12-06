@@ -41,6 +41,8 @@ class TicTacToeOption extends React.Component {
 
       <div className="text-center">
 
+        <Row><h1 className="center-me mt-large mb-large">Trivia Tic Tac Toe</h1></Row>
+
         <Row className="mt-3 mb-3">
       
           <Col lg={1}></Col>

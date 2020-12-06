@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
 
 // Font Awesome Items
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -29,7 +30,11 @@ const MainNavBar = (props) => {
 
     return (
         <Navbar expand="lg" className="navbar-color">
-            <Navbar.Brand href="/" className="grey-font">Triviudum</Navbar.Brand>
+            <Navbar.Brand className="grey-font">
+            <Link to={`/`} ><img src="/images/logo2.png" /></Link>
+            </Navbar.Brand>
+
+            
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto justify-content-end">

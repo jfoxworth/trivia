@@ -50,7 +50,7 @@ const QuestionList = (props) => {
 						{qList.map((ques, index) => (
 								<ListGroup.Item className={"shallow-bg sidebar-item " + (ques.status==0 ? 'alert-warning' : '')} key={ques.id}>
 										<Row>
-												<Col xs={1}>
+												<Col xs={1} className="center-me">
 														<BadgeItem badgeType = {ques.difficulty}/>
 												</Col>
 												<Col xs={1}>

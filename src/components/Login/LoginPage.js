@@ -15,6 +15,9 @@ import RegisterLine from './RegisterLine';
 import OrSeperator from './OrSeperator';
 import Footer from '../Footer/FooterPage';
 
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
 // Import CSS
 import './loginStyle.css';
@@ -26,19 +29,34 @@ const LoginPage = (props) => {
 
 	return (
 
-		<div className="light-color">
+		<div style={{'min-height':'700px !important'}}>
 
 			<NavBar />
 
-			<div className="login-form">
+			<Container >
 
-				<LoginInputs />
-				<MiddleItems />
-				<OrSeperator />
-				<SocialMediaButtons />
-				<RegisterLine />
+				<Row className="mt-verylarge mb-verylarge">
 
-			</div>
+					<Col sm={6} className="text-right">
+						<img src="/images/player4.png" height="300px" />
+					</Col>
+
+
+					<Col sm={6}>
+						<div className="login-form">
+
+							<LoginInputs />
+							{/* <MiddleItems /> */}
+							{/* <OrSeperator /> */}
+							{/* <SocialMediaButtons /> */}
+							<RegisterLine />
+
+						</div>
+					</Col>
+
+				</Row>
+
+			</Container>
 
 			<Footer />
 

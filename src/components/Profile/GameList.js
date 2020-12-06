@@ -24,8 +24,11 @@ class GameList extends React.Component {
       this.state = { }
   }
 
-  resumeGame = (gameId)=>{
-    this.setState({ redirect: "/TicTacToe/"+gameId });
+  resumeGame = (game, gameId)=>{
+    
+    game.gameType==0 ? this.setState({ redirect: "/TicTacToe/"+gameId }) : '';
+    game.gameType==1 ? this.setState({ redirect: "/BigBoard/"+gameId }) : '';
+
   }
 
 
@@ -54,16 +57,23 @@ class GameList extends React.Component {
             
             <ListGroup.Item className="mb-small mt-small shallow-bg">
               <Row>
+                <Col className="text-center lead" sm={2}>Game Type</Col>
                 <Col className="text-center lead" sm={3}>Date Started</Col>
                 <Col className="text-center lead" sm={3}>Players</Col>
                 <Col className="text-center lead" sm={3}>Status</Col>
-                <Col className="text-center lead" sm={3}>Whose turn</Col>
+                <Col className="text-center lead" sm={1}>Whose turn</Col>
               </Row>
             </ListGroup.Item>
 
             { this.props.games.map((el, index)=>(
               <ListGroup.Item key={el.id} className="shallow-bg text-center">
                 <Row>
+
+                  { el.gameType==0 && 
+                    <Col sm={2}>Tic Tac Toe</Col>}
+
+                  { el.gameType==1 && 
+                    <Col sm={2}>Big Board</Col>}
 
                   <Col sm={3}>{format(el.dateCreated.toDate(), 'MM/dd/yyyy K:m aaaa')}</Col>
 
@@ -74,19 +84,19 @@ class GameList extends React.Component {
 
                   { el.status== 0 && 
                     <Col sm={3}>
-                      <Button variant="warning" onClick={()=>{ this.resumeGame(el.id) }} >Game Setup</Button>
+                      <Button variant="warning" onClick={()=>{ this.resumeGame(el, el.id) }} >Game Setup</Button>
                     </Col>
                   }
                   
                   { el.status== 1 && !el.gameOver && 
                     <Col sm={3}>
-                      <Button variant="success" onClick={()=>{ this.resumeGame(el.id) }} >Resume Game</Button>
+                      <Button variant="success" onClick={()=>{ this.resumeGame(el, el.id) }} >Resume Game</Button>
                     </Col>
                   }
 
                   { el.status== 1 && el.gameOver && 
                     <Col sm={3}>
-                      <Button variant="secondary" onClick={()=>{ this.resumeGame(el.id) }} >Game is Over</Button>
+                      <Button variant="secondary" onClick={()=>{ this.resumeGame(el, el.id) }} >Game is Over</Button>
                     </Col>
                   }
 
@@ -97,7 +107,7 @@ class GameList extends React.Component {
                   }
 
                   { el.status== 1 && !el.gameOver && el.players[el.activeUser]['id']!=this.props.auth.uid &&
-                    <Col sm={3}>
+                    <Col sm={1}>
                       <span className="badge badge-secondary mr-small">{el.players[el.activeUser]['username']}</span>
                     </Col>
                   }

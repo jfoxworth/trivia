@@ -11,6 +11,9 @@ import NavBar from '../NavBar/NavBar';
 import RegisterInputs from './RegisterInputs';
 import Footer from '../Footer/FooterPage';
 
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
 
 // Import CSS
@@ -23,19 +26,33 @@ const RegisterPage = (props) => {
 
     return (
     
-        <div className="light-color">
+			<div>
 
-            <NavBar />
+				<NavBar />
 
-            <div className="login-form">
 
-                <RegisterInputs />
+				<Container >
 
-            </div>
+					<Row className="mt-verylarge mb-verylarge">
 
-            <Footer />
+						<Col sm={6} className="text-right mt-large">
+							<img src="/images/player3.png" height="300px" />
+						</Col>
 
-        </div>
+
+						<Col sm={6}>
+							<div className="login-form">
+								<RegisterInputs />
+							</div>
+						</Col>
+
+					</Row>
+
+				</Container>
+
+				<Footer />
+
+			</div>
     )
 }
 

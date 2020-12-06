@@ -1,6 +1,9 @@
 
 
 import React from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from "react-router-dom";
+
 
 // Import CSS
 import '../mainCSS.css';
@@ -10,32 +13,95 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
+// Action creators
+import { createGame } from '../../store/actions/gameActions';
 
-const BigBoardOption = (props) => (
 
-	<div className="text-center">
+// Model
+import modelGame from '../../models/game.js';
 
-    <Row className="mt-3 mb-3">
-      <Col lg={1}></Col>
-      <Col lg={6}>
-        <p className="text-justify lead">Start a Big Board trivia game by clicking the button below the image. You can then 
-        choose to import a board of questions or just use tags and difficulty settings. You 
-        can play the game from your computer by taking turns or by challenging another user 
-        playing on another computer.</p>
-      </Col>
-      <Col lg={4}>
-        <div><img src="/images/bigboard.jpg" height="200" /></div>
-        <div className="mt-3 mb-3">
-          <Button variant="primary" onClick={()=>props.setModalShow(true)}>
-            Start Big Board Game
-          </Button>
-        </div>
-      </Col>
-      <Col lg={1}></Col>
-    </Row>
+
   
-  </div>
-);
+class BigBoardOption extends React.Component {
+
+  constructor(props) {
+      super(props);
+      this.state = { }
+  }
+  
+  render(){
+
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />
+    }
 
 
-export default BigBoardOption;
+    return(
+
+      <div className="text-center">
+
+        <Row><h1 className="center-me mt-large mb-large">Trivia Big Board</h1></Row>
+
+        <Row className="mt-3 mb-3">
+      
+          <Col lg={1}></Col>
+
+          <Col lg={6}>
+            <p className="text-justify lead">Start a Big Board trivia game by clicking the button 
+            below the image. You can then import questions using tags and difficulty settings. You 
+            can play the game from your computer by taking turns or by challenging another user 
+            playing on another computer.</p>
+          </Col>
+
+          <Col lg={4}>
+            <div><img src="/images/TTT1.png" height="200" /></div>
+          </Col>
+
+          <Col lg={1}></Col>
+
+        </Row>
+
+
+        <Row>
+  
+          <Col lg={1}></Col>
+
+          <Col lg={6}>
+            { !this.props.auth &&
+              <div className="mt-3 mb-3">
+                  <Button variant="info" onClick={()=>{ this.setState({ redirect: "/register"+id });} }>
+                    Create an account
+                  </Button>
+              </div>
+            }
+          </Col>
+
+          <Col lg={4}>
+            { this.props.auth &&
+              <div className="mt-3 mb-3">
+                  <Button variant="primary" onClick={()=>{this.props.createGame({...modelGame, gameType:1 }).then((id)=> 
+                                                      { this.setState({ redirect: "/BigBoard/"+id });} )}}>
+                    Start Big Board Game
+                  </Button>
+            </div> }
+          </Col>
+
+          <Col lg={1}></Col>
+
+        </Row>
+      
+      </div>
+    );
+
+  }
+
+}
+
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+      createGame: (game) => dispatch(createGame(game))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(BigBoardOption);

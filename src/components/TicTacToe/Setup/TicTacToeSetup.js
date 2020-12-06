@@ -14,7 +14,7 @@ import TagImport from './TagImport';
 import DiffSelect from './DiffSelect';
 import StartButton from './StartButton';
 import NumQue from './NumQue';
-
+import Warnings from './Warnings';
 
 // Import models
 import showProps from '../../../models/showProps.js';
@@ -98,24 +98,7 @@ class TicTacToeSetup extends React.Component
       */}
           <hr/>
 
-          { 
-            !this.props.game.players[1] &&
-            this.props.game.playerType==1 &&
-            <Container>
-              <div className="alert alert-info">
-                <strong>Two Players Needed!</strong> Challenge a player or change the type.
-              </div>
-            </Container>
-          }
-
-          { 
-            this.props.game.potentialQuesions<9 &&
-            <Container>
-              <div className="alert alert-info">
-                <strong>More Questions Needed!</strong> Add a tag or change difficulty settings.
-              </div>
-            </Container>
-            }
+          <Warnings game={this.props.game} />
 
           { ( (this.props.game.players[1] && this.props.game.playerType==1) ||
               ( this.props.game.playerType==0)) &&

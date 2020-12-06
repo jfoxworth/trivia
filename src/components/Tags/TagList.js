@@ -40,16 +40,6 @@ class TagList extends React.Component {
       <div className="width-80p center-me">
 
 
-        { !!this.props.userId && <div>
-          <h2 className="text-center mt-large">My Tags</h2>
-
-          {this.props.tags.filter((tag)=>{if (tag.userId==this.props.userId){ return true }})
-            .length==0 && <div className="lead">You have not created any tags</div> }
-
-        </div>}
-
-
-
         <h2 className="text-center mt-large">List of Tags</h2>
 
         <ListGroup variant="flush" className="mt-large no-bg">

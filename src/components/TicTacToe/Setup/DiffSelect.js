@@ -52,10 +52,10 @@ class DiffSelect extends React.Component {
             </Col>
 
             <Col md={10} className="center-me">
-              <Row>
+              <Row className="ml-small">
                 {this.props.game.diff.map((diffLevel, index) => (
                   <Col md={3} key={this.props.showProps.diffLevel[index]}>
-                    <div className={this.props.showProps.diffColor[index]+" center-me width-175 white-text pt-small pb-small hover-me curve-small"}
+                    <div className={this.props.showProps.diffColor[index]+" center-me white-text pt-small pb-small hover-me curve-small"}
                             onClick={()=>{this.handleChange(index, !this.props.game.diff[index])}}>
                             { this.props.game.diff[index] ? <FontAwesomeIcon icon={faCheck} 
                                                                     className="mr-tiny mt-tiny"

@@ -13,6 +13,7 @@ import EditQuestionPage from '../components/EditQuestion/EditQuestionPage';
 import EditBoardPage from '../components/EditBoard/EditBoardPage';
 import RegisterPage from '../components/Register/RegisterPage';
 import TagsPage from '../components/Tags/TagsPage';
+import BigBoardPage from '../components/BigBoard/BigBoardPage';
 
 import TestPage from '../components/TestPage';
 
@@ -30,6 +31,10 @@ const AppRouter = () => (
         <Route path='/questions' component={ QuestionsPage } exact={true} />
         <Route path='/TicTacToe/:gameId' component={ TicTacToePage } exact={true} />
         <Route path='/tictactoe/:gameId' component={ TicTacToePage } exact={true} />
+        <Route path='/bigboard/:gameId' component={ BigBoardPage } exact={true} />
+        <Route path='/BigBoard/:gameId' component={ BigBoardPage } exact={true} />
+        <Route path='/bigBoard/:gameId' component={ BigBoardPage } exact={true} />
+        <Route path='/Bigboard/:gameId' component={ BigBoardPage } exact={true} />
         <Route path='/editQuestion/:questionId' component={ EditQuestionPage } />
         <Route path='/editBoard/:boardId' component={ EditBoardPage } />
         <Route path='/tags' component={ TagsPage } exact={true} />
