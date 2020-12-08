@@ -30,6 +30,7 @@ export default {
   diffLevel:['Easy', 'Medium', 'Difficult', 'Master'], 
   potentialQuestions:0,             // The number of questions possible given the settings
   challengeAccepted:false,          // true when the challenged user accepts the challenge
+  challengeArray:[],                // Array holding IDs of those that have accepted the challenge
   answeredArray:[],                 // Array holding the ids of questions that have been answered in this game
   attempedArray:[],                 // Array holding the ids of questions that have been attempted in this game
                                     // This is used to prevent duplicate questions being asked until impossible
@@ -41,8 +42,11 @@ export default {
 
   //  Big Board Items
   questionsPerColumn:5,             // The number of questions in each column
-  questionSet:[],                   // The set of questions for the board
-  bonusQuestion:{},                 // The question asked at the end
+  questionSet:{                     // The set of questions for the board and other properties of the question set
+    tagArray:[],
+    questionArray:[],
+    bonusQuestion:{}                // The question asked at the end
+  },
 
   // Array of squares holding the square object, which has a question, etc
   squares : Array(9).fill(

@@ -30,15 +30,20 @@ class ChallengeList extends React.Component {
       this.state = { }
   }
 
-  acceptChallenge = (gameId, challenge, challengeId)=>{
+  acceptChallenge = (gameId, challenge, challengeId, userId)=>{
+    let aa = ['/TicTacToe/', '/BigBoard/'];
     this.props.games.forEach((game)=>{
-      console.log(game.id+'-'+gameId);
       if (game.id==gameId)
       {
+        let ta = JSON.parse(JSON.stringify(game.challengeArray));
+        ta.push(userId);
+        let check=ta.length==game.players.length ? true : false;
         this.props.editChallenge({...challenge, accepted:true } , challengeId)
+        console.log(ta);
 
-        this.props.editGame({...game, challengeAccepted:true } , gameId).then((id)=> 
-          { this.setState({ redirect: "/TicTacToe/"+gameId })});
+
+        this.props.editGame({...game, challengeAccepted:check, challengeArray:ta } , gameId).then((id)=> 
+          { this.setState({ redirect: aa[game.gameType]+''+gameId })});
 
       }
     })
@@ -88,7 +93,7 @@ class ChallengeList extends React.Component {
                     {format(el.dateCreated.toDate(), 'MM/dd/yyyy K:Maaaa')}
                   </Col>
                   <Col sm={3}>
-                    <Button variant="primary" onClick={()=>{ this.acceptChallenge(el.gameId, el, el.id) }} >
+                    <Button variant="primary" onClick={()=>{ this.acceptChallenge(el.gameId, el, el.id, this.props.uid) }} >
                       Accept Challenge
                     </Button>
                   </Col>

@@ -22,11 +22,10 @@ import { faColumns } from '@fortawesome/free-solid-svg-icons';
 
 
 // Components
-import BadgeItem from './BadgeItem';
 import TagList from './Taglist';
 import QuestionType from './QuestionType';
 import GameShow from './GameShow';
-
+import DiffBadge from '../Shared/Badges/DiffBadge';
 
 	
 const QuestionList = (props) => {
@@ -51,7 +50,7 @@ const QuestionList = (props) => {
 								<ListGroup.Item className={"shallow-bg sidebar-item " + (ques.status==0 ? 'alert-warning' : '')} key={ques.id}>
 										<Row>
 												<Col xs={1} className="center-me">
-														<BadgeItem badgeType = {ques.difficulty}/>
+														<DiffBadge badgeType = {ques.difficulty}/>
 												</Col>
 												<Col xs={1}>
 														<QuestionType questionType={ques.type}/>

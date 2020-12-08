@@ -25,7 +25,7 @@ class QuestionsPer extends React.Component {
 					
 
 		changeQuestions = (qPer)=>{
-        this.props.editGame({...this.props.game, questionsPerColumn:qPer.val } , this.props.gameId);
+        this.props.editGame({...this.props.game, questionsPerColumn:qPer.val } , this.props.gameId).then(()=>{ this.props.setQuestions()});
     }
     
     

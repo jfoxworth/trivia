@@ -9,6 +9,7 @@ import { compose } from 'redux';
 import NavBar from '../NavBar/NavBar';
 import BigBoardBoard from './GamePlay/BigBoardBoard';
 import BigBoardSetup from './Setup/BigBoardSetup';
+import ChallengeStatus from './ChallengeStatus';
 import Footer from '../Footer/FooterPage';
 
 
@@ -40,8 +41,10 @@ const BigBoardPage = (props) => {
 			!props.game.challengeAccepted &&
 			<Container className="full-height">
 				<div className="alert alert-info mt-large">
-					<strong>Waiting on Challenger to Accept!</strong> Please be patient.
+					<strong>Waiting on Challenger(s) to Accept!</strong> Please be patient.
 				</div>
+				<ChallengeStatus game={ props.game } 
+												gameId={props.match.params.gameId} />
 			</Container>	}
 
 

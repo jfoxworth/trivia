@@ -24,7 +24,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 
 // Components
-import BadgeItem from '../Questions/BadgeItem';
+import DiffBadge from '../Shared/Badges/DiffBadge';
 import QuestionType from '../Questions/QuestionType';
 import TagList from '../Questions/TagList';
 
@@ -70,7 +70,7 @@ class CurrentQuestions extends React.Component {
                   </Button>{' '}
                 </Col>
                 <Col xs={1}>
-                    <BadgeItem badgeType = {ques.difficulty}/>
+                    <DiffBadge badgeType = {ques.difficulty}/>
                 </Col>
                 <Col xs={1}>
                     <QuestionType questionType={ques.type}/>

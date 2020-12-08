@@ -386,6 +386,13 @@ Color code from https://www.canva.com/learn/100-color-combinations/ - Autumn in 
     padding:40px !important;
 }
 
+.no-padding {
+    padding:0px !important;
+}
+
+.no-margin {
+    margin:0px !important;
+}
 
 
 /*  Avatar Images */
@@ -412,6 +419,7 @@ Color code from https://www.canva.com/learn/100-color-combinations/ - Autumn in 
     height:130px;
     width:130px;
     zoom:0.4;
+    -moz-transform: scale(0.4);
 }
 
 /* line 1 - page 1 */

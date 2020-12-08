@@ -28,7 +28,7 @@ import { editBoard } from '../../store/actions/boardActions';
 
 
 // Components
-import BadgeItem from '../Questions/BadgeItem';
+import DiffBadge from '../Shared/Badges/DiffBadge';
 import QuestionType from '../Questions/QuestionType';
 import TagList from '../Questions/TagList';
 
@@ -121,7 +121,7 @@ class QuestionSelect extends React.Component {
                   </Button>{' '}
                 </Col>
                 <Col xs={1}>
-                    <BadgeItem badgeType = {ques.difficulty}/>
+                    <DiffBadge badgeType = {ques.difficulty}/>
                 </Col>
                 <Col xs={1}>
                     <QuestionType questionType={ques.type}/>

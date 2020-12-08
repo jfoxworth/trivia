@@ -50,7 +50,9 @@ const ProfilePage = (props) => (
 
 				<Container>
 					<Col>
-						<ChallengeList challenges={props.challenges} games={props.games}/>
+						<ChallengeList challenges={props.challenges} 
+													 games={props.games}
+													 uid={props.auth.uid}  />
 						<GameList games={props.games} auth={props.auth}/>
 					</Col>
 				</Container>

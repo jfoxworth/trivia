@@ -10,7 +10,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import BadgeItem from '../../../Questions/BadgeItem';
+import DiffBadge from '../../../Shared/Badges/DiffBadge';
 
 // Action creators
 import { editGame } from '../../../../store/actions/gameActions';
@@ -192,7 +192,7 @@ class EnterQuestion extends React.Component
             ))}
           </Col>
           <Col sm={6}>
-            <BadgeItem badgeType = {this.props.game.activeQuestion.difficulty}/>      
+            <DiffBadge badgeType = {this.props.game.activeQuestion.difficulty}/>      
           </Col>
         </Row>
 

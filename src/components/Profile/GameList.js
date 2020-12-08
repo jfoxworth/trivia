@@ -88,11 +88,18 @@ class GameList extends React.Component {
                     </Col>
                   }
                   
-                  { el.status== 1 && !el.gameOver && 
+                  { el.status== 1 && !el.gameOver && el.challengeAccepted &&
                     <Col sm={3}>
                       <Button variant="success" onClick={()=>{ this.resumeGame(el, el.id) }} >Resume Game</Button>
                     </Col>
                   }
+
+                  { el.status== 1 && !el.gameOver && !el.challengeAccepted &&
+                    <Col sm={3}>
+                      <Button variant="warning" onClick={()=>{ this.resumeGame(el, el.id) }} >Challenge Waiting</Button>
+                    </Col>
+                  }
+
 
                   { el.status== 1 && el.gameOver && 
                     <Col sm={3}>
@@ -101,7 +108,8 @@ class GameList extends React.Component {
                   }
 
                   { el.status== 1 && !el.gameOver && el.players[el.activeUser]['id']==this.props.auth.uid &&
-                    <Col sm={3}>
+                    el.challengeAccepted &&
+                    <Col sm={1}>
                       <span className="badge badge-success mr-small">Your Turn</span>
                     </Col>
                   }

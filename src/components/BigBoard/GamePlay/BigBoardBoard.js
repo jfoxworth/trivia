@@ -12,6 +12,10 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 
 // Components
+import TurnDisplay from './TurnDisplay';
+import MainBoard from './MainBoard';
+import ActiveQuestion from './ActiveQuestion';
+
 /*
 import ActionList from './ActionList';
 import TurnDisplay from './TurnDisplay';
@@ -102,22 +106,32 @@ class BigBoardBoard extends React.Component
 		return (
 
 			<Container className="center-me">
-				{/*
 
-				<TurnDisplay game = { this.props.game }  
+				<Row>
+
+					<Col sm={6}>
+						<MainBoard game={ this.props.game }
+											gameId={ this.props.gameId }
+											userId = { this.props.userId } 
+											questionCountdown={this.questionCountdown} />
+					</Col>
+
+					<Col sm={6}>
+						<TurnDisplay game = { this.props.game }  
 												profile = { this.props.profile }
 												userId = {this.props.userId} />
 
-					{ !this.props.game.gameOver && <hr />}
+						<ActiveQuestion game={this.props.game}
+                            userId={this.props.userId}
+                            gameId={this.props.game.id} />
 
-				<MainBoard questions={ this.props.questions } 
-										game={ this.props.game }
-										gameId={ this.props.gameId }
-										userId = { this.props.userId } 
-										questionCountdown={this.questionCountdown} />
+					</Col>
 
+
+				</Row>
+				
+				{/*
 				<ActionList actions={ this.props.game.actions }/>
-
 				*/}
 
 			</Container>
