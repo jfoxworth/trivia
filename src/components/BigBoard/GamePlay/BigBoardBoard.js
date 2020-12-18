@@ -15,6 +15,7 @@ import Container from 'react-bootstrap/Container';
 import TurnDisplay from './TurnDisplay';
 import MainBoard from './MainBoard';
 import ActiveQuestion from './ActiveQuestion';
+import ScoreDisplay from './ScoreDisplay';
 
 /*
 import ActionList from './ActionList';
@@ -120,6 +121,8 @@ class BigBoardBoard extends React.Component
 						<TurnDisplay game = { this.props.game }  
 												profile = { this.props.profile }
 												userId = {this.props.userId} />
+
+						<ScoreDisplay game = {this.props.game} />
 
 						<ActiveQuestion game={this.props.game}
                             userId={this.props.userId}

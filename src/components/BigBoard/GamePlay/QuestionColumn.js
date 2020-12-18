@@ -41,7 +41,8 @@ class QuestionColumn extends React.Component
                                        index={index}
                                        question={ques}
                                        key={'square'+index}
-                                       userId={this.props.userId}/>
+                                       userId={this.props.userId}
+                                       tag={this.props.tag}/>
               }
             }
           )}
